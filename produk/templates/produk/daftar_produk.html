@@ -1,0 +1,59 @@
+daftar_produk.html
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Produk - REDAS STORE</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#D8D9DA] text-[#272829] flex flex-col min-h-screen">
+
+  <!-- Semua isi utama -->
+  <div class="flex-grow">
+    <!-- Header -->
+    <header class="bg-[#61677A] text-white py-16">
+      <div class="container mx-auto text-center px-4">
+        <h1 class="text-5xl font-bold mb-4 leading-tight">Daftar Produk di REDAS STORE</h1>
+        <p class="text-xl max-w-2xl mx-auto">Temukan berbagai produk teknologi terbaik untuk memenuhi kebutuhan Anda.</p>
+      </div>
+    </header>
+
+    <!-- Daftar Produk -->
+    <main class="container mx-auto px-4 py-12">
+      <h2 class="text-3xl font-bold mb-10 text-center">Produk Kami</h2>
+
+      <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {% for id, produk in produk_list.items %}
+          <li class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+            <a href="/produk/{{ id }}/" class="block p-6 group hover:bg-[#61677A] transition-colors duration-300">
+              <h3 class="text-2xl font-semibold mb-2 text-[#272829] group-hover:text-white">
+                {{ produk.nama }}
+              </h3>
+              <p class="text-sm text-[#61677A] group-hover:text-[#FFF6E0]">
+                {{ produk.deskripsi }}
+              </p>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <!-- Kembali ke Home -->
+      <div class="mt-12 text-center">
+        <a href="/" class="inline-block text-[#61677A] hover:text-[#272829] hover:underline text-lg transition-colors duration-300">
+          Kembali ke Home
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-[#61677A] text-white py-6 mt-auto">
+    <div class="container mx-auto text-center px-4">
+      <p>&copy; 2025 REDAS STORE. Semua hak cipta dilindungi.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
